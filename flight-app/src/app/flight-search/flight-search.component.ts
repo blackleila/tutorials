@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
 import {Flight} from "../flight";
 
 @Component({
@@ -7,24 +8,64 @@ import {Flight} from "../flight";
   styleUrls: ['./flight-search.component.scss']
 })
 
-export class FlightSearchComponent implements OnInit{
+export class FlightSearchComponent implements OnInit {
 
   from = 'Hamburg';
   to = 'Graz';
-  flights:Array<Flight>= [];
-  selectedFlight:Flight | null = null;
+  flights: Array<Flight> = [];
+  selectedFlight: Flight | null = null;
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {
   }
 
-  search():void{
+  search(): void {
+    const url = 'http://demo.ANGULARarchitects.io/api/flight';
 
+    const headers = new HttpHeaders()
+      .set('Accept', 'application/json');
+
+    const params = new HttpParams()
+      .set('from', this.from)
+      .set('to', this.to);
+
+    this.http.get<Flight[]>(url, {headers, params}).subscribe({
+      next: (flights) => {
+        this.flights = flights;
+      },
+
+      error: (err) => {
+        console.error('Error', err);
+      }
+    });
   }
 
-  select(f:Flight):void{
-    this.selectedFlight=f;
+  // // Beispiel für POST
+  // createDemoFlight(): void {
+  //   const url = 'http://demo.ANGULARarchitects.io/api/flight';
+  //
+  //   const headers = new HttpHeaders().set('Accept', 'application/json');
+  //
+  //   const newFlight: Flight = {
+  //     id: 0,
+  //     from: 'Gleisdorf',
+  //     to: 'Graz',
+  //     date: new Date().toISOString()
+  //   };
+  //
+  //   this.http.post<Flight>(url, newFlight, {headers}).subscribe({
+  //     next: (flight) => {
+  //       console.debug('Neue Id: ', flight.id);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error', err);
+  //     }
+  //   });
+  // }
+
+  select(f: Flight): void {
+    this.selectedFlight = f;
   }
 }
