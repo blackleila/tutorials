@@ -8,20 +8,23 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 
 import {HttpClientModule}from'@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
-   imports: [
-      HttpClientModule,
-      BrowserModule
-   ],
-   declarations: [
-      AppComponent,
-      SidebarComponent,
-      NavbarComponent,
-      FlightSearchComponent
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  bootstrap: [
+    AppComponent
+  ],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    NavbarComponent,
+    FlightSearchComponent
+  ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    FormsModule
+  ],
+  providers: []
 })
 export class AppModule { }
