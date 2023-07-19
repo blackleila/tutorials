@@ -9,6 +9,14 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 import {HttpClientModule}from'@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   bootstrap: [
@@ -18,12 +26,18 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    FlightSearchComponent
+    FlightSearchComponent,
+    HomeComponent,
+    PassengerSearchComponent,
+    FlightEditComponent,
+    AboutComponent,
+    NotFoundComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(APP_ROUTES),
   ],
   providers: []
 })
