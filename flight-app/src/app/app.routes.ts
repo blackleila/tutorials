@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { FlightSearchComponent } from './flight-booking/flight-search/flight-search.component';
 import { PassengerSearchComponent }
-  from './passenger-search/passenger-search.component';
-import { FlightEditComponent } from './flight-edit/flight-edit.component';
+  from './flight-booking/passenger-search/passenger-search.component';
+import { FlightEditComponent } from './flight-booking/flight-edit/flight-edit.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Flight } from '../flight';
+import { Flight } from '../../flight';
 
 @Component({
   selector: 'app-flight-card',
