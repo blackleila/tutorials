@@ -17,6 +17,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
+import {FlightCardComponent} from "./flight-card/flight-card.component";
 
 @NgModule({
   bootstrap: [
@@ -27,6 +28,7 @@ import { APP_ROUTES } from './app.routes';
     SidebarComponent,
     NavbarComponent,
     FlightSearchComponent,
+    FlightCardComponent,
     HomeComponent,
     PassengerSearchComponent,
     FlightEditComponent,
